@@ -13,15 +13,15 @@ jobs:
       - run: docker build -t ziuuk/react-test -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true ziuuk/react-test npm test
 
-      - run: docker build -t ziuuk/multi-client-10-14 ./client
-      - run: docker build -t ziuuk/multi-nginx-10-14 ./nginx
-      - run: docker build -t ziuuk/multi-server-10-14 ./server
-      - run: docker build -t ziuuk/multi-worker-10-14 ./worker
+      - run: docker build -t ziuuk/multi-client-up ./client
+      - run: docker build -t ziuuk/multi-nginx-up ./nginx
+      - run: docker build -t ziuuk/multi-server-up ./server
+      - run: docker build -t ziuuk/multi-worker-up ./worker
 
-      - run: docker push ziuuk/multi-client-10-14
-      - run: docker push ziuuk/multi-nginx-10-14
-      - run: docker push ziuuk/multi-server-10-14
-      - run: docker push ziuuk/multi-worker-10-14
+      - run: docker push ziuuk/multi-client-up
+      - run: docker push ziuuk/multi-nginx-up
+      - run: docker push ziuuk/multi-server-up
+      - run: docker push ziuuk/multi-worker-up
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
